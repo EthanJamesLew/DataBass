@@ -14,7 +14,7 @@ Project 2, CS 162
 "deltitle <title>"  delete an entry
 "delidx <idx>"      delete by index
 "ls"                list songs
-"save <filename>"   Save current database to disk
-"load <filename>"   Load database from disk
+"save <filename>"   save current database to disk
+"load <filename>"   load database from disk
 "quit"              quit the program
 
