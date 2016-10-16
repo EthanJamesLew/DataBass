@@ -8,12 +8,13 @@ Created by Ethan Lew
 Project 2, CS 162
 
 "add"               add song prompt
-"edit <title>"      edit an entry
-"deltitle <title>"  delete an entry
-"delidx <idx>"      delete by index
 "sartist <artist>"  search by artist
 "salbum <album>"    search by album
 "stitle <title>"    search by title
+"deltitle <title>"  delete an entry
+"delidx <idx>"      delete by index
 "ls"                list songs
+"save <filename>"   Save current database to disk
+"load <filename>"   Load database from disk
 "quit"              quit the program
 
