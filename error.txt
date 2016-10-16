@@ -1,0 +1,6 @@
+Compiled src/eptr.cpp successfully!
+Compiled src/estring.cpp successfully!
+Compiled src/evector.cpp successfully!
+Compiled src/main.cpp successfully!
+Compiled src/ehash.cpp successfully!
+Linking complete!
