@@ -6,6 +6,12 @@
 #include "fileformat.h"
 #include "ehash.h"
 
+bool isFile(e::EString file)
+{
+	std::ifstream infile(file.cstr());
+	return infile.good();
+}
+
 
 enum ComKeys: unsigned int
 {
@@ -16,6 +22,8 @@ enum ComKeys: unsigned int
 	SEARCHARTIST = 1902126709,
 	SEARCHALBUM = 3877959697,
 	SEARCHTITLE = 1276617220,
+	SAVE = 3439296072,
+	LOAD = 3859241449,
 	LS = 1446109160
 
 };
@@ -66,6 +74,8 @@ public:
 		case SEARCHARTIST: sartist(); break;
 		case SEARCHTITLE: stitle(); break;
 		case LS: ls(); break;
+		case SAVE: save(); break;
+		case LOAD: load(); break;
 		default: std::cout << "Unknown command " << vec[0] << std::endl; break;
 		}
 		std::cout << std::endl;
@@ -89,6 +99,9 @@ private:
 	void salbum();
 	void sartist();
 	void stitle();
+	bool checkFile();
+	void save();
+	void load();
 	void ls();
 };
 
@@ -172,6 +185,11 @@ e::EString vecToString(e::EVector<e::EString> vec, unsigned a, unsigned b, char*
 
 void MainControl::search(unsigned idx)
 {
+	if(vec.size()==1)
+	{
+		std::cout << "Nothing to search" << std::endl; 
+		return;
+	}
 	e::EVector<Song> results = e::EVector<Song>();
 	e::EString str = vecToString(vec, 1, vec.size());
 	results = lib->searchSongs(idx, str);
@@ -193,6 +211,45 @@ void MainControl::sartist()
 void MainControl::stitle()
 {
 	search(TITLE);
+}
+
+bool MainControl::checkFile()
+{
+	if(vec.size() > 2)
+	{
+		std::cout << "Filename must be one word." << std::endl;
+	}
+	else if(vec.size() == 1)
+	{
+		std::cout << "Provide a filename" << std::endl;
+	}
+	else
+	{
+		return true;
+	}
+	return false;
+}
+
+void MainControl::save()
+{
+	if(checkFile())
+	{
+		file->projectToFile(*lib, vec[1]);
+	}
+	
+}
+
+void MainControl::load()
+{
+	if(checkFile())
+	{
+		if(!isFile(vec[1])) 
+		{
+			std::cout << vec[1] << " does not exist." << std::endl;
+			return;
+		}
+		file->fileToProject(*lib, vec[1]);
+	}
 }
 
 void MainControl::ls()

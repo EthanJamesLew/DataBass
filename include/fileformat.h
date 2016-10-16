@@ -54,7 +54,7 @@ public:
 			file.getline(line, 256);
 			e::EString li = (e::EString) line;
 			e::EVector<e::EString> songItems = getWords(li, ';');
-			if (songItems.size() != 5) file.close();//Throw Error
+			if (songItems.size() != 5) break;//Throw Error
 			Song e;
 			e[TITLE] = songItems[TITLE];
 			e[ARTIST] = songItems[ARTIST];

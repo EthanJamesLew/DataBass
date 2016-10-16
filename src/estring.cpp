@@ -15,11 +15,13 @@ namespace e
 
 	EString::EString()
 	{
-
+		
 	}
 
 	EString::~EString()
 	{
+
+
 	}
 
 	void EString::cat(char* cat)
@@ -62,7 +64,10 @@ namespace e
 			newStr[i - a] = _cstr[i];
 		}
 		newStr[b - a] = '\0';
-		return EString(newStr);
+		EString estr(newStr);
+		free(newStr);
+
+		return estr;
 	}
 
 	EString EString::slice(int b)
@@ -85,6 +90,14 @@ namespace e
 		long val = strtol(_cstr, &next, 10);
 		if ((next == _cstr) || (*next != '\0')) return false;
 		else return val;
+	}
+
+	EString EString::toLower()
+	{
+		char* str = _cstr;
+		for(; *str; ++str) *str = tolower(*str);
+		EString estr(str);
+		return estr;
 	}
 
 	EString& EString::operator+(EString& rhs)

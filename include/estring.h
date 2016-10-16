@@ -33,6 +33,8 @@ namespace e
 		bool isInteger();
 		int getInteger();
 
+		EString toLower();
+
 		int size(){ return _size; }
 
 	private:
