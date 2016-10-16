@@ -60,7 +60,9 @@ public:
 			e[ARTIST] = songItems[ARTIST];
 			e[MINUTES] = songItems[MINUTES];
 			e[SECONDS] = songItems[SECONDS];
-			e[ALBUM] = songItems[ALBUM];
+			e::EString album = songItems[ALBUM]; 
+			e[ALBUM] = album.slice(0,album.size()-1 );
+			
 			lib.addItem(e);
 		}
 		file.close();

@@ -3,7 +3,7 @@
 TARGET   = Project01_Grocery
 
 CC       = g++
-CFLAGS   = -std=c++14 -pedantic -Wall -I./include -I./src
+CFLAGS   = -std=c++11 -pedantic -Wall -I./include -I./src
 
 LINKER   = g++ -o
 

@@ -31,8 +31,10 @@ public:
 	e::EVector<T> searchMultiIndex(unsigned idx, V val)
 	{
 		e::EVector<T> results;
+		
 		for (T* it = items.begin(); it != items.end(); ++it)
 		{
+
 			if ((*it)[idx] == val)
 				results.push_back(*it);
 		}
@@ -52,6 +54,7 @@ public:
 	{
 		for (T* it = items.begin(); it != items.end(); ++it)
 		{
+			
 			if ((*it)[idx] == val)
 			{
 				std::swap(*it, items.back());
