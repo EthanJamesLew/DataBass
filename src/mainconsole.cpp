@@ -1,3 +1,6 @@
+#ifndef MAINCONSOLE_CPP
+#define MAINCONSOLE_CPP
+
 #include "mainconsole.h"
 
 MainConsole::~MainConsole()
@@ -42,3 +45,5 @@ void MainConsole::mainLoop()
 		console->execCommand(command);
 	}
 }
+
+#endif
