@@ -38,7 +38,7 @@ void FileFormat::fileToProject(SongLibrary& lib, e::EString filename)
 	file.close();
 }
 
-e::EVector<e::EString> getWords(e::EString& vec, const char del)
+static e::EVector<e::EString> getWords(e::EString& vec, const char del)
 {
 	e::EVector<e::EString> words;
 	int prev = 0;
