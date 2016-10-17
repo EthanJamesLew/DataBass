@@ -1,3 +1,6 @@
+#ifndef MAINCONTROL_CPP
+#define MAINCONTROL_CPP
+
 #include "maincontrol.h"
 
 bool isFile(e::EString file)
@@ -253,3 +256,5 @@ void MainControl::ls()
 		idx++;
 	}
 }
+
+#endif
