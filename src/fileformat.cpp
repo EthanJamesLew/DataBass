@@ -1,3 +1,6 @@
+#ifndef FILEFORMAT_CPP
+#define FILEFORMAT_CPP
+
 #include "fileformat.h"
 
 void FileFormat::projectToFile(SongLibrary& lib, e::EString filename)
@@ -55,3 +58,5 @@ e::EVector<e::EString> getWords(e::EString& vec, const char del)
 	words.push_back(vec.slice(prev, vec.size()));
 	return words;
 }
+
+#endif
